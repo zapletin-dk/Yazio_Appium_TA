@@ -9,13 +9,13 @@ public class StepDefinitions {
     LoginPage loginPage;
     MainPage mainPage;
 
-    public StepDefinitions(AppiumDriver driver){
+    public StepDefinitions(AppiumDriver driver) {
         this.driver = driver;
         loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
     }
 
-    public void loginAsExistingUser(){
+    public void loginAsExistingUser() {
         loginPage.allowNotifications()
                 .clickAlreadyHaveAccount()
                 .clickContinueWithEmail()
@@ -24,7 +24,7 @@ public class StepDefinitions {
                 .clickLoginButton();
     }
 
-    public boolean welcomeTextOccursOnMainPage(){
+    public boolean welcomeTextOccursOnMainPage() {
         return mainPage.welcomeToYazioTextIsShown();
     }
 }

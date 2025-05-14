@@ -16,7 +16,7 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
-    public boolean welcomeToYazioTextIsShown(){
+    public boolean welcomeToYazioTextIsShown() {
         return welcomeToYazioText.isDisplayed();
     }
 }

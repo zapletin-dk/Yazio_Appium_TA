@@ -36,45 +36,45 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public LoginPage allowNotifications(){
+    public LoginPage allowNotifications() {
         allowNotificationsButton.click();
         return this;
     }
 
-    public LoginPage declineNotifications(){
+    public LoginPage declineNotifications() {
         denyNotificationsButton.click();
         return this;
     }
 
-    public LoginPage clickAlreadyHaveAccount(){
+    public LoginPage clickAlreadyHaveAccount() {
         alreadyHaveAccountButton.click();
         return this;
     }
 
-    public LoginPage clickContinueWithGoogleAccount(){
+    public LoginPage clickContinueWithGoogleAccount() {
         continueWithGoogleButton.click();
         return this;
     }
 
-    public LoginPage clickContinueWithEmail(){
+    public LoginPage clickContinueWithEmail() {
         continueWithEmailButton.click();
         return this;
     }
 
 
-    public LoginPage fillEmailField(String email){
+    public LoginPage fillEmailField(String email) {
        // emailField.click();
         emailField.sendKeys(email);
         return this;
     }
 
-    public LoginPage fillPasswordField(String password){
+    public LoginPage fillPasswordField(String password) {
        // passwordField.click();
         passwordField.sendKeys(password);
         return this;
     }
 
-    public MainPage clickLoginButton(){
+    public MainPage clickLoginButton() {
         loginButton.click();
         return new MainPage(driver);
     }
