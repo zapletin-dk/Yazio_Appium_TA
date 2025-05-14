@@ -5,7 +5,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 abstract class BasePage {
-
     protected AppiumDriver driver;
 
     public BasePage(AppiumDriver driver) {

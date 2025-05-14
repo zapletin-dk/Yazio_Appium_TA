@@ -5,7 +5,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
     private WebElement allowNotificationsButton;
 

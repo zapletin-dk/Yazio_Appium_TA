@@ -1,4 +1,3 @@
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -6,8 +5,8 @@ import steps.StepDefinitions;
 import utils.DriverManager;
 
 public class BaseTest {
-    DriverManager driverManager = DriverManager.getInstance();
     protected AndroidDriver driver;
+    DriverManager driverManager = DriverManager.getInstance();
     StepDefinitions stepDefinitions;
 
     @BeforeMethod
@@ -16,8 +15,8 @@ public class BaseTest {
         stepDefinitions = new StepDefinitions(driver);
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        driverManager.quitDriver();
-//    }
+    @AfterMethod
+    public void tearDown() {
+        driverManager.quitDriver();
+    }
 }

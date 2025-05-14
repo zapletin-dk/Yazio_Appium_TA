@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URI;
 import java.time.Duration;
 
-public class DriverManager{
+public class DriverManager {
     private static AppiumDriver driver;
 
     private static final String DEVICE_NAME = ConfigReader.emulatorConfig.deviceName();
@@ -20,7 +20,7 @@ public class DriverManager{
 
     private static DriverManager INSTANCE;
 
-    public static DriverManager getInstance(){
+    public static DriverManager getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new DriverManager();
         }
@@ -38,16 +38,17 @@ public class DriverManager{
 
         driver = new AndroidDriver(new URI(URL).toURL(), capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
         return driver;
     }
 
-    public void quitDriver(){
+    public void quitDriver() {
         if (driver != null) {
             driver.quit();
         }
     }
 
-    public AppiumDriver getDriver() throws Exception{
+    public AppiumDriver getDriver() throws Exception {
         if (driver != null) {
             return driver;
         } else {
