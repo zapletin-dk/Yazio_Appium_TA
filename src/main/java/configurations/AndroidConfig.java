@@ -5,9 +5,9 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "file:src/main/resources/configs/emulator.properties",
+        "file:src/main/resources/configs/android.properties",
 })
-public interface EmulatorConfig extends Config {
+public interface AndroidConfig extends Config {
     @Key("deviceName")
     String deviceName();
 
@@ -19,13 +19,4 @@ public interface EmulatorConfig extends Config {
 
     @Key("appActivity")
     String appActivity();
-
-    @Key("app")
-    String app();
-
-    @Key("remoteURL")
-    String remoteURL();
-
-    @Key("automationName")
-    String automationName();
 }

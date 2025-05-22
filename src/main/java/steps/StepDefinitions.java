@@ -1,30 +1,28 @@
 package steps;
 
-import io.appium.java_client.AppiumDriver;
 import pages.LoginPage;
 import pages.MainPage;
+import utils.User;
 
 public class StepDefinitions {
-    private AppiumDriver driver;
-    LoginPage loginPage;
-    MainPage mainPage;
+    private LoginPage loginPage;
+    private MainPage mainPage;
 
-    public StepDefinitions(AppiumDriver driver) {
-        this.driver = driver;
-        loginPage = new LoginPage(driver);
-        mainPage = new MainPage(driver);
+    public StepDefinitions() {
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
     }
 
-    public void loginAsExistingUser() {
+    public void loginAsExistingUser(User user) {
         loginPage.allowNotifications()
                 .clickAlreadyHaveAccount()
                 .clickContinueWithEmail()
-                .fillEmailField("yazio_test@yopmail.com")
-                .fillPasswordField("qwerty123")
+                .fillEmailField(user.getEmail())
+                .fillPasswordField(user.getPassword())
                 .clickLoginButton();
     }
 
-    public boolean welcomeTextOccursOnMainPage() {
-        return mainPage.welcomeToYazioTextIsShown();
+    public boolean isWelcomeBackTextVisibleAfterLogIn() {
+        return mainPage.isWelcomeBackTextVisible();
     }
 }

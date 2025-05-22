@@ -16,6 +16,7 @@
         <allure.version>2.24.0</allure.version>
         <log4j.version>2.20.0</log4j.version>
         <aeonbits.owner.version>1.0.12</aeonbits.owner.version>
+        <java.faker.version>1.0.2</java.faker.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -55,6 +56,11 @@
             <artifactId>owner</artifactId>
             <version>${aeonbits.owner.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${java.faker.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -64,9 +70,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>reports/allure-results</allure.results.directory>
                     </systemPropertyVariables>

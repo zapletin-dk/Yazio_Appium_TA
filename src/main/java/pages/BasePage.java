@@ -3,12 +3,15 @@ package pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import utils.DriverManager;
 
 abstract class BasePage {
-    protected AppiumDriver driver;
-
-    public BasePage(AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    public BasePage() {
+        try {
+            AppiumDriver driver = DriverManager.getDriver();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        } catch (Exception e) {
+            throw new RuntimeException("Error initializing page elements: " + e.getMessage());
+        }
     }
 }
