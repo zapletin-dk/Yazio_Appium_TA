@@ -17,6 +17,7 @@
         <log4j.version>2.20.0</log4j.version>
         <aeonbits.owner.version>1.0.12</aeonbits.owner.version>
         <java.faker.version>1.0.2</java.faker.version>
+        <lombok.version>1.18.38</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -56,10 +57,17 @@
             <artifactId>owner</artifactId>
             <version>${aeonbits.owner.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${java.faker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 

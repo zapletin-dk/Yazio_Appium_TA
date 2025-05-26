@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MobileAutomationSuite" parallel="tests" thread-count="2">
+    <test name="IOSTest">
+        <parameter name="device" value="Iphone 12"/>
+        <parameter name="os" value="ios"/>
+        <classes>
+            <class name="LoginPageTest"/>
+        </classes>
+    </test>
+    <test name="AndroidTest">
+        <parameter name="device" value="Pixel_9_android_15"/>
+        <parameter name="os" value="android"/>
+        <classes>
+            <class name="LoginPageTest"/>
+        </classes>
+    </test>
+</suite>

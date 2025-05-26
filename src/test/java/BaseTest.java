@@ -1,7 +1,7 @@
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import steps.StepDefinitions;
-import utils.DriverManager;
+import configurations.DriverManager;
 
 public class BaseTest {
     public StepDefinitions stepDefinitions;

@@ -10,8 +10,5 @@ import org.aeonbits.owner.Config;
 public interface EnvironmentConfig extends Config {
     @Key("appiumURL")
     String appiumURL();
-
-    @Key("os")
-    String os();
 }
 

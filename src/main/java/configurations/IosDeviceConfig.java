@@ -7,13 +7,7 @@ import org.aeonbits.owner.Config;
         "system:properties",
         "file:src/main/resources/configs/ios.properties",
 })
-public interface IosConfig extends Config {
+public interface IosDeviceConfig extends Config {
     @Key("deviceName")
     String deviceName();
-
-    @Key("platformName")
-    String platformName();
-
-    @Key("appPackage")
-    String appPackage();
 }

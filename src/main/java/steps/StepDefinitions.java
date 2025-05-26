@@ -2,18 +2,18 @@ package steps;
 
 import pages.LoginPage;
 import pages.MainPage;
-import utils.User;
+import entity.User;
 
 public class StepDefinitions {
-    private LoginPage loginPage;
-    private MainPage mainPage;
+    private final LoginPage loginPage;
+    private final MainPage mainPage;
 
     public StepDefinitions() {
         loginPage = new LoginPage();
         mainPage = new MainPage();
     }
 
-    public void loginAsExistingUser(User user) {
+    public void loginAs(User user) {
         loginPage.allowNotifications()
                 .clickAlreadyHaveAccount()
                 .clickContinueWithEmail()
