@@ -1,7 +1,7 @@
+import entity.UserFactory;
 import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import entity.UserFactory;
 
 public class LoginPageTest extends BaseTest {
 

@@ -1,13 +1,17 @@
+import configurations.DriverManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import steps.StepDefinitions;
-import configurations.DriverManager;
+import utils.DriverFactory;
 
 public class BaseTest {
     public StepDefinitions stepDefinitions;
 
     @BeforeMethod
-    public void setUp() {
+    @Parameters({"device", "deviceOS"})
+    public void setUp(String device, String deviceOS) {
+        DriverFactory.initDriver(device, deviceOS);
         stepDefinitions = new StepDefinitions();
     }
 

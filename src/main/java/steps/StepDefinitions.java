@@ -1,8 +1,8 @@
 package steps;
 
+import entity.User;
 import pages.LoginPage;
 import pages.MainPage;
-import entity.User;
 
 public class StepDefinitions {
     private final LoginPage loginPage;
