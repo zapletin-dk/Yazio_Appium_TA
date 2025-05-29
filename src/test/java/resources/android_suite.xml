@@ -3,6 +3,7 @@
     <test name="AndroidTest">
         <parameter name="device" value="Pixel_9_android_15"/>
         <parameter name="deviceOS" value="android"/>
+        <parameter name="osVersion" value="15"/>
         <classes>
             <class name="LoginPageTest"/>
         </classes>

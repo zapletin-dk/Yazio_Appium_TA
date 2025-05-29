@@ -3,8 +3,7 @@ package entity;
 import com.github.javafaker.Faker;
 
 public class UserFactory {
-
-    Faker faker = new Faker();
+    private static final Faker faker = new Faker();
 
     public static User getExistingUser() {
         return new User.Builder()
@@ -12,7 +11,7 @@ public class UserFactory {
                 .password("qwerty123").build();
     }
 
-    public User createRandomUser() {
+    public static User createRandomUser() {
         return new User.Builder()
                 .username(faker.name().username())
                 .password(faker.internet().password())

@@ -3,6 +3,7 @@
     <test name="IOSTest">
         <parameter name="device" value="iPhone 12"/>
         <parameter name="deviceOS" value="ios"/>
+        <parameter name="osVersion" value="18"/>
         <classes>
             <class name="LoginPageTest"/>
         </classes>
