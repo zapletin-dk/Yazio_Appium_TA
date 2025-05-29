@@ -1,4 +1,4 @@
-```markdown
+
 # YAZIO App Test Automation Project
 
 ## Overview
@@ -6,18 +6,18 @@ This project contains an automated testing framework for the YAZIO mobile applic
 
 ## Project Structure
 ```
-plaintext
-Yazio_app_TA/
-├── src/
-│   ├── main/java/         # Main source code
-│   └── test/
-│       ├── java/         # Test implementations
-│       └── resources/    # Test resources and configurations
-│           └── android_suite.xml  # TestNG suite configuration
-├── reports/
-│   └── allure-results/   # Allure test reports
+Yazio_app_TA/  
+├── src/  
+│  ├── main/java/         # Main source code  
+│    └── test/  
+│       ├── java/         # Test implementations  
+│       └── resources/    # Test resources and configurations  
+│           └── android_suite.xml  # TestNG suite configuration  
+├── reports/  
+│   └── allure-results/   # Allure test reports  
 └── pom.xml              # Project dependencies and build configuration
 ```
+
 ## Setup Requirements
 1. JDK 21
 2. Maven
@@ -39,20 +39,20 @@ mvn clean test
 The tests will run according to the configuration in `android_suite.xml` by default.
 
 ### Running Tests with Environment Properties
-You can pass environment properties using the `-D` flag with Maven commands:
-Using suite.xml files
--DsuiteXmlFile | All the xml files are located in src/test/java/resources
-Or by providing details about device via parametrs
--Ddevice
--DdeviceOS
+You can pass environment properties using the `-D` flag with Maven commands:  
+Using suite.xml files  
+`-DsuiteXmlFile` | All the xml files are located in src/test/java/resources  
+Or by providing details about device via parametrs  
+`-Ddevice`  
+`-DdeviceOS`  
 
 ## Test Reports
 The project uses Allure for test reporting. Reports are generated in the `reports/allure-results` directory.
 
-To generate and view Allure reports:
-1. Install Allure command-line tool
-2. Run the tests
-3. Generate the report:
+To generate and view Allure reports:  
+1. Install Allure command-line tool  
+2. Run the tests  
+3. Generate the report:  
 ```
 bash
 allure serve reports/allure-results
