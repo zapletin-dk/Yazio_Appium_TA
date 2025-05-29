@@ -15,7 +15,6 @@
         <testng.version>7.8.0</testng.version>
         <allure.version>2.24.0</allure.version>
         <log4j.version>2.20.0</log4j.version>
-        <aeonbits.owner.version>1.0.12</aeonbits.owner.version>
         <java.faker.version>1.0.2</java.faker.version>
         <lombok.version>1.18.38</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -50,12 +49,6 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.aeonbits.owner</groupId>
-            <artifactId>owner</artifactId>
-            <version>${aeonbits.owner.version}</version>
         </dependency>
 
         <dependency>

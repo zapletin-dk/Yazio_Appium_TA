@@ -1,0 +1,58 @@
+```markdown
+# YAZIO App Test Automation Project
+
+## Overview
+This project contains an automated testing framework for the YAZIO mobile application using Appium. It's built with Java and implements a comprehensive test suite for both Android and Ios platform testing.
+
+## Project Structure
+```
+plaintext
+Yazio_app_TA/
+├── src/
+│   ├── main/java/         # Main source code
+│   └── test/
+│       ├── java/         # Test implementations
+│       └── resources/    # Test resources and configurations
+│           └── android_suite.xml  # TestNG suite configuration
+├── reports/
+│   └── allure-results/   # Allure test reports
+└── pom.xml              # Project dependencies and build configuration
+```
+## Setup Requirements
+1. JDK 21
+2. Maven
+3. Appium Server
+4. Android SDK or Android studio
+5. IOS SDK or Xcode
+6. An Android device or emulator
+7. An IOS device or simulator
+
+## Configuration
+The project uses the TestNG xml files for configuration management.
+
+## Running Tests
+Execute the test suite using Maven:
+```
+bash
+mvn clean test
+```
+The tests will run according to the configuration in `android_suite.xml` by default.
+
+### Running Tests with Environment Properties
+You can pass environment properties using the `-D` flag with Maven commands:
+Using suite.xml files
+-DsuiteXmlFile | All the xml files are located in src/test/java/resources
+Or by providing details about device via parametrs
+-Ddevice
+-DdeviceOS
+
+## Test Reports
+The project uses Allure for test reporting. Reports are generated in the `reports/allure-results` directory.
+
+To generate and view Allure reports:
+1. Install Allure command-line tool
+2. Run the tests
+3. Generate the report:
+```
+bash
+allure serve reports/allure-results
