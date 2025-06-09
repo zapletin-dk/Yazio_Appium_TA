@@ -1,8 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Ios_Suite" verbose="2">
-<!--    <listeners>-->
-<!--        <listener class-name="listeners.AllureListener"/>-->
-<!--    </listeners>-->
     <test name="IOSTest">
         <parameter name="device" value="iPhone 12"/>
         <parameter name="deviceOS" value="ios"/>
