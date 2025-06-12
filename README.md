@@ -13,7 +13,7 @@ Yazio_app_TA/
 │       ├── java/         # Test implementations  
 │       └── resources/    # Test resources and configurations  
 │           └── android_suite.xml  # TestNG suite configuration  
-├── reports/  
+├── target/  
 │   └── allure-results/   # Allure test reports  
 └── pom.xml              # Project dependencies and build configuration
 ```
@@ -44,10 +44,11 @@ Using suite.xml files
 `-DsuiteXmlFile` | All the xml files are located in src/test/java/resources  
 Or by providing details about device via parametrs  
 `-Ddevice`  
-`-DdeviceOS`  
+`-DdeviceOS`
+`-DosVersion`
 
 ## Test Reports
-The project uses Allure for test reporting. Reports are generated in the `reports/allure-results` directory.
+The project uses Allure for test reporting. Reports are generated in the `target/allure-results` directory.
 
 To generate and view Allure reports:  
 1. Install Allure command-line tool  
@@ -55,4 +56,26 @@ To generate and view Allure reports:
 3. Generate the report:  
 ```
 bash
-allure serve reports/allure-results
+allure serve target/allure-results  OR mvn allure:serve
+```
+
+## Allure report will be opened automatically by running via scripts
+
+#### Windows:
+1. Install Allure CLI 
+2. Run in the terminal
+```
+./run-tests.bat
+```
+3. Or run via bash 
+```bash    
+
+./run-tests.sh
+``` 
+
+#### Mac/Linux:
+```bash   
+
+chmod +x run-tests.sh
+./run-tests.sh
+```

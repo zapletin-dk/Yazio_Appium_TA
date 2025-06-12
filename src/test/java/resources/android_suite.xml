@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Android_Suite" verbose="2">
-    <test name="AndroidTest">
+<suite name="Android Suite" verbose="2">
+    <test name="Android Test">
         <parameter name="device" value="Pixel_9_android_15"/>
         <parameter name="deviceOS" value="android"/>
         <parameter name="osVersion" value="15"/>
