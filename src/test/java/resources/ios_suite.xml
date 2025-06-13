@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Ios_Suite" verbose="2">
+    <parameter name="device" value="iPhone 12"/>
+    <parameter name="deviceOS" value="ios"/>
+    <parameter name="osVersion" value="18"/>
     <test name="IOSTest">
-        <parameter name="device" value="iPhone 12"/>
-        <parameter name="deviceOS" value="ios"/>
-        <parameter name="osVersion" value="18"/>
         <classes>
             <class name="LoginPageTest"/>
         </classes>

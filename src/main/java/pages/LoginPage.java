@@ -2,6 +2,7 @@ package pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
@@ -45,6 +46,7 @@ public class LoginPage extends BasePage {
         super();
     }
 
+    @Step("Click allow notifications")
     public LoginPage allowNotifications() {
         allowNotificationsButton.click();
         return this;
@@ -55,6 +57,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Click already have an account button")
     public LoginPage clickAlreadyHaveAccount() {
         alreadyHaveAccountButton.click();
         return this;
@@ -65,21 +68,25 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Click continue with email button")
     public LoginPage clickContinueWithEmail() {
         continueWithEmailButton.click();
         return this;
     }
 
+    @Step("Fill email field with {email}")
     public LoginPage fillEmailField(String email) {
         emailField.sendKeys(email);
         return this;
     }
 
+    @Step("Fill password field with {password}")
     public LoginPage fillPasswordField(String password) {
         passwordField.sendKeys(password);
         return this;
     }
 
+    @Step("Click login button")
     public MainPage clickLoginButton() {
         loginButton.click();
         return new MainPage();
