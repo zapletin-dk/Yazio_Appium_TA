@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Cleaning project..."
+mvn clean
+
 echo "Running tests..."
 mvn test
 
