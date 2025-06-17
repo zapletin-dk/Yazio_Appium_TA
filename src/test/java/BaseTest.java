@@ -13,23 +13,25 @@ import java.io.ByteArrayInputStream;
 public class BaseTest {
     public StepDefinitions stepDefinitions;
 
-    private static AppiumServerManager serverManager = new AppiumServerManager();
+    private static AppiumServerManager serverManager;
 
-    @BeforeSuite
-    @Parameters({"deviceOS"})
-    public void setUp(String deviceOS) {
-        serverManager.startServer(deviceOS);
+    @BeforeClass
+    @Parameters({"deviceOS", "port"})
+    public void appiumSetUp(String deviceOS, String port) {
+        serverManager = new AppiumServerManager();
+        serverManager.startServer(deviceOS, port);
     }
 
-    @AfterSuite
-    public void tearDown() {
-        serverManager.stopServer();
+    @AfterClass
+    @Parameters({"port"})
+    public void appiumTearDown(String port) {
+        serverManager.stopServer(port);
     }
 
     @BeforeMethod
-    @Parameters({"device", "deviceOS", "osVersion"})
-    public void setUp(String device, String deviceOS, String osVersion) {
-        DriverFactory.initDriver(device, deviceOS, osVersion);
+    @Parameters({"device", "deviceOS", "osVersion", "port"})
+    public void setUp(String device, String deviceOS, String osVersion, String port) {
+        DriverFactory.initDriver(device, deviceOS, osVersion, port);
         stepDefinitions = new StepDefinitions();
     }
 
@@ -39,6 +41,11 @@ public class BaseTest {
             takeScreenshot();
         }
         DriverManager.quitDriver();
+    }
+
+    @AfterSuite
+    public void tearDownSuite() {
+        serverManager.stopAllServers();
     }
 
     @Step("Make screenshot of failed part")
