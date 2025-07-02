@@ -13,16 +13,16 @@ import java.time.Duration;
 public class DriverFactory {
     private static final Duration IMPLICIT_WAIT_TIMEOUT = Duration.ofSeconds(20);
 
-    public static void initDriver(String device, String deviceOS, String osVersion, String port) {
+    public static void initDriver(String device, String deviceOS, String osVersion, int port) {
         AppiumDriver driver = DriverFactory.createDriver(device, deviceOS, osVersion, port);
         DriverManager.setDriverThreadLocal(driver);
     }
 
-    private static AppiumDriver createDriver(String device, String deviceOS, String osVersion, String port) {
+    private static AppiumDriver createDriver(String device, String deviceOS, String osVersion, int port) {
         AppiumDriver driver;
 
         try {
-            URL appiumURL = new URI(getAppiumUrl(port)).toURL();
+            URL appiumURL = new URI(getAppiumUrl(String.valueOf(port))).toURL();
 
             return switch (OsType.fromString(deviceOS)) {
                 case ANDROID -> {
@@ -47,7 +47,7 @@ public class DriverFactory {
                 .setPlatformName("android")
                 .setPlatformVersion(osVersion)
                 .setAppPackage("com.yazio.android")
-                .setAppActivity("com.yazio.android/yazio.feature.MainActivity")
+                .setAppActivity("yazio.feature.MainActivity")
                 .setAutomationName("UiAutomator2");
     }
 

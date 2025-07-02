@@ -11,26 +11,24 @@ import steps.StepDefinitions;
 import java.io.ByteArrayInputStream;
 
 public class BaseTest {
+    private static AppiumServerManager serverManager;
+    private static int port;
     public StepDefinitions stepDefinitions;
 
-    private static AppiumServerManager serverManager;
-
     @BeforeClass
-    @Parameters({"deviceOS", "port"})
-    public void appiumSetUp(String deviceOS, String port) {
+    public void appiumSetUp() {
         serverManager = new AppiumServerManager();
-        serverManager.startServer(deviceOS, port);
+        port = serverManager.startServer();
     }
 
     @AfterClass
-    @Parameters({"port"})
-    public void appiumTearDown(String port) {
+    public void appiumTearDown() {
         serverManager.stopServer(port);
     }
 
     @BeforeMethod
-    @Parameters({"device", "deviceOS", "osVersion", "port"})
-    public void setUp(String device, String deviceOS, String osVersion, String port) {
+    @Parameters({"device", "deviceOS", "osVersion"})
+    public void setUp(String device, String deviceOS, String osVersion) {
         DriverFactory.initDriver(device, deviceOS, osVersion, port);
         stepDefinitions = new StepDefinitions();
     }

@@ -8,35 +8,42 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AppiumServerManager {
+    private static final ThreadLocal<Map<Integer, AppiumDriverLocalService>> services =
+            ThreadLocal.withInitial(HashMap::new);
     private AppiumDriverLocalService service;
-    private static final Map<String, AppiumDriverLocalService> services = new HashMap<>();
 
-    public void startServer(String os, String port) {
+    public int startServer() {
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
                 .withIPAddress("127.0.0.1")
-                .usingPort(Integer.parseInt(port))
+                .usingAnyFreePort()
                 .withTimeout(Duration.ofSeconds(60));
 
-        service = builder.build();
+        AppiumDriverLocalService service = builder.build();
         service.start();
-        services.put(port, service);
+
+        int actualPort = service.getUrl().getPort();
+        services.get().put(actualPort, service);
+
+        return actualPort;
     }
 
-    public void stopServer(String port) {
-        AppiumDriverLocalService currentService = services.get(port);
-        if (currentService != null && currentService.isRunning()) {
-        currentService.stop();
-        services.remove(port);
+    public void stopServer(int port) {
+        Map<Integer, AppiumDriverLocalService> localServices = services.get();
+        AppiumDriverLocalService service = localServices.get(port);
+        if (service != null && service.isRunning()) {
+            service.stop();
+            localServices.remove(port);
         }
     }
+
     public void stopAllServers() {
-        services.values().forEach(service -> {
-            if (service != null && service.isRunning()) {
-                service.stop();
+        Map<Integer, AppiumDriverLocalService> localServices = services.get();
+        localServices.values().forEach(s -> {
+            if (s != null && s.isRunning()) {
+                s.stop();
             }
         });
-        services.clear();
+        localServices.clear();
     }
-
-
 }
+
