@@ -1,11 +1,30 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Ios_Suite" verbose="2">
-    <test name="IOSTest">
+<suite name="Ios_Suite" verbose="2" parallel="tests" thread-count="2">
+    <test name="Iphone 12 Test">
         <parameter name="device" value="iPhone 12"/>
         <parameter name="deviceOS" value="ios"/>
         <parameter name="osVersion" value="18"/>
+        <parameter name="port" value="4723" />
         <classes>
-            <class name="LoginPageTest"/>
+            <class name="LoginPageTest">
+                <methods>
+                    <include name="signInAsExistingUserTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Iphone 15 Test">
+        <parameter name="device" value="Iphone 15"/>
+        <parameter name="deviceOS" value="ios"/>
+        <parameter name="osVersion" value="18"/>
+        <parameter name="port" value="4725"/>
+        <classes>
+            <class name="LoginPageTest">
+                <methods>
+                    <include name="signInAsExistingUserFailedTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

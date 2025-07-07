@@ -38,3 +38,7 @@ out/
 reports/
 allure-results/
 allure-report/
+
+node_modules/
+package-lock.json
+appium.log

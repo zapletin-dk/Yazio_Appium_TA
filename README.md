@@ -21,11 +21,31 @@ Yazio_app_TA/
 ## Setup Requirements
 1. JDK 21
 2. Maven
-3. Appium Server
+3. Appium Server and Appium Server driver
 4. Android SDK or Android studio
 5. IOS SDK or Xcode
 6. An Android device or emulator
 7. An IOS device or simulator
+
+#### Windows:
+To install Appium Server and Appium Server driver
+1. Run in the terminal
+```
+./setup_appium.bat
+```
+2. Or run via bash
+```bash    
+
+chmod +x run-tests.sh
+./setup_appium.sh
+``` 
+
+#### Mac/Linux:
+```bash   
+
+chmod +x run-tests.sh
+./setup_appium.sh
+```
 
 ## Configuration
 The project uses the TestNG xml files for configuration management.
